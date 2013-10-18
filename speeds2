@@ -1,0 +1,2 @@
+#!/bin/bash
+paste -d '' <(date +%s) <(wget -O - -o /dev/null -i /home/ben/testin2.file | sed 's/&nbsp;//g' | xmlstarlet sel -N x=http://www.w3.org/1999/xhtml -t -m "//x:span[contains(@id,'Speed')]" -o ',' -v '.' | sed 's/ mph//g') >> /home/ben/speeds_new2.csv
